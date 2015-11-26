@@ -24,12 +24,12 @@ func (s *HtmlSuite) TestExterns(c *C) {
 	buf = bytes.NewBuffer([]byte{})
 	err = t.ExecuteTemplate(buf, "a", struct{ Name, Data string }{"b", "100"})
 	c.Assert(err, IsNil)
-	c.Assert(string(buf.Bytes()), Equals, "Extends: this is B, 100")
+	c.Assert(buf.String(), Equals, "Extends: this is B, 100")
 
 	buf = bytes.NewBuffer([]byte{})
 	err = t.ExecuteTemplate(buf, "a", struct{ Name, Data string }{"c", "xyz"})
 	c.Assert(err, IsNil)
-	c.Assert(string(buf.Bytes()), Equals, "Extends: this is C, xyz")
+	c.Assert(buf.String(), Equals, "Extends: this is C, xyz")
 
 	buf = bytes.NewBuffer([]byte{})
 	err = t.ExecuteTemplate(buf, "a", struct{ Name, Data string }{"d", "aaa"})
@@ -47,7 +47,7 @@ func (s *HtmlSuite) TestBytes(c *C) {
 	buf = bytes.NewBuffer([]byte{})
 	err = t.ExecuteTemplate(buf, "a", 23*1024*1024)
 	c.Assert(err, IsNil)
-	c.Assert(string(buf.Bytes()), Equals, "23MB,23GB,23TB")
+	c.Assert(buf.String(), Equals, "23MB,23GB,23TB")
 }
 
 func (s *HtmlSuite) TestElapsed(c *C) {
@@ -62,5 +62,5 @@ func (s *HtmlSuite) TestElapsed(c *C) {
 	buf = bytes.NewBuffer([]byte{})
 	err = t.ExecuteTemplate(buf, "a", now.Add(-31*time.Minute))
 	c.Assert(err, IsNil)
-	c.Assert(string(buf.Bytes()), Equals, "31 mins ago")
+	c.Assert(buf.String(), Equals, "31 mins ago")
 }

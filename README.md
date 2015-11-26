@@ -1,6 +1,8 @@
 This is not another temple.
 This is golang templates!
 
+Documentation: https://godoc.org/github.com/truszkowski/gotemple
+
 # Example
 
 ```golang
