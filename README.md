@@ -14,7 +14,11 @@ import (
 )
 
 func main() {
-	s := "{{define \"example\"}}{{ range $i, $n := . }}{{$i}}: {{$n|inCount}}\n{{end}}{{end}}"
+	s := "{{define \"example\"}}"
+	s += "{{ range $i, $n := . }}"
+	s += "{{$i}}: {{$n|inCount}}\n"
+	s += "{{end}}"
+	s += "{{end}}"
 	tmpl := temple.NewText("tmpl")
 
 	if _, err := tmpl.Parse(s); err != nil {
