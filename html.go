@@ -1,4 +1,4 @@
-package tmpl
+package temple
 
 import (
 	"bytes"

@@ -1,4 +1,4 @@
-package tmpl
+package temple
 
 var coreFuncs = map[string]interface{}{
 	"elapsed":        Elapsed,
